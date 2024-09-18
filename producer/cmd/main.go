@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"crypto/tls"
-	"fmt"
 	"log"
 	"time"
 
@@ -45,7 +44,7 @@ func main() {
 	defer func(w *kafka.Writer) {
 		err := w.Close()
 		if err != nil {
-			fmt.Println(err)
+			log.Fatal(err)
 		}
 	}(w)
 

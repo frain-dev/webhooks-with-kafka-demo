@@ -3,7 +3,6 @@ package producer
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"math/rand"
 
@@ -48,7 +47,6 @@ func Produce(ctx context.Context, w *kafka.Writer, produceRate uint) {
 		messages = append(messages, kafka.Message{Value: payload})
 	}
 
-	fmt.Println("HERE", len(messages))
 	err := w.WriteMessages(ctx, messages...)
 	if err != nil {
 		log.Fatal(err)
